@@ -37,7 +37,7 @@ download_release() {
 	local version filename url platform arch
 	version="$1"
 	filename="$2"
-    platform="unsupported" # filled by `case` below
+	platform="unsupported" # filled by `case` below
 	arch="unsupported"     # filled by `case` below
 
 	case "$(uname)" in
