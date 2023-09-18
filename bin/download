@@ -20,6 +20,3 @@ mv "$release_file" "$ASDF_DOWNLOAD_PATH/kubeswitch"
 
 # Make the binary executable
 chmod +x "$ASDF_DOWNLOAD_PATH/kubeswitch"
-
-# Create a symlink in the install directory
-#ln -s "$ASDF_DOWNLOAD_PATH/kubeswitch" "$ASDF_INSTALL_PATH/switch"
