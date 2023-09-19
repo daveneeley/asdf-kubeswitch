@@ -44,10 +44,13 @@ asdf global kubeswitch latest
 # Now kubeswitch 'switcher' is available
 kubeswitch -h
 
-#Required: source the shell function
+# Required: source the shell function
 # see https://github.com/danielfoehrKn/kubeswitch/blob/master/docs/installation.md for more options
 echo 'source <(switcher init bash)' >> ~/.bashrc
 source ~/.bashrc
+
+# Now execute 'switch' to pull up your kubernetes contexts
+switch
 
 ```
 
