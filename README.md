@@ -41,8 +41,14 @@ asdf install kubeswitch latest
 # Set a version globally (on your ~/.tool-versions file)
 asdf global kubeswitch latest
 
-# Now kubeswitch commands are available
+# Now kubeswitch 'switcher' is available
 kubeswitch -h
+
+#Required: source the shell function
+# see https://github.com/danielfoehrKn/kubeswitch/blob/master/docs/installation.md for more options
+echo 'source <(switcher init bash)' >> ~/.bashrc
+source ~/.bashrc
+
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
