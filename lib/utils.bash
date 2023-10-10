@@ -5,6 +5,8 @@ set -euo pipefail
 GH_REPO="https://github.com/danielfoehrKn/kubeswitch"
 TOOL_NAME="kubeswitch"
 TOOL_TEST="kubeswitch -h"
+TOOL_NAME2="switcher"
+TOOL_TEST2="switcher -h"
 
 fail() {
 	echo -e "asdf-$TOOL_NAME: $*"
@@ -87,6 +89,15 @@ install_version() {
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
 		echo "$TOOL_NAME $version installation was successful!"
+
+		local tool_cmd2
+		tool_cmd2="$(echo "$TOOL_TEST2" | cut -d' ' -f1)"
+
+		# create a relative symlink to the binary in the install directory
+		ln -sfn "$install_path/$tool_cmd" "$install_path/$tool_cmd2" || fail "Could not create symlink $install_path/$tool_cmd2"
+		test -x "$install_path/$tool_cmd2" || fail "Expected $install_path/$tool_cmd2 to be executable."
+
+		echo "$TOOL_NAME2 $version installation was successful!"
 	) || (
 		rm -rf "$install_path"
 		fail "An error occurred while installing $TOOL_NAME $version."
