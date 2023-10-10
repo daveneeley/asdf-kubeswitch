@@ -93,6 +93,8 @@ install_version() {
 		# create a relative symlink to the binary in the install directory
 		ln -sfn "$install_path/$tool_cmd" "$install_path/$TOOL_TEST2"
 
+		ls -la "$install_path/$TOOL_TEST2"
+
 		local tool_cmd2
 		tool_cmd2="$(echo "$TOOL_TEST2" | cut -d' ' -f1)"
 		test -x "$install_path/$tool_cmd2" || fail "Expected $install_path/$tool_cmd2 to be executable."
